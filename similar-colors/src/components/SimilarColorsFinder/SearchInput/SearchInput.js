@@ -8,10 +8,9 @@ const SearchInput = ({
   searchInput,
   handleChange,
   handleKeyDown,
-  hexError,
-  errorMessage,
+  inputError,
+  errorMessage
 }) => {
-
   //Hooks
   const classes = useStyles();
   return (
@@ -23,19 +22,17 @@ const SearchInput = ({
         label="Color Code"
         id="search-input"
         InputProps={{
-          startAdornment: <InputAdornment position="start">#</InputAdornment>
+          startAdornment: <InputAdornment position="start">#</InputAdornment>,
+          maxLength: 6
         }}
-        inputProps={{ maxLength: 6 }}
         variant="outlined"
         autoFocus
-        error={hexError}
+        error={inputError}
         helperText={errorMessage}
         className={classes.textField}
       />
-
     </Paper>
   );
 };
-
 
 export default SearchInput;
